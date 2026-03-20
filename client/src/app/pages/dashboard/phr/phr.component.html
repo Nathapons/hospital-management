@@ -1,0 +1,86 @@
+<div class="space-y-6">
+  <!-- Profile Information -->
+  <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+    <h3 class="text-lg font-bold text-gray-900 mb-1">Profile Information</h3>
+    <p class="text-sm text-gray-500 mb-6">Update your personal details here.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+      <!-- First Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+        <input type="text" value="Jane" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+      </div>
+      <!-- Last Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+        <input type="text" value="Doe" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+      </div>
+      <!-- Date of Birth -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+        <div class="relative">
+          <input type="text" placeholder="Pick a date" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+        </div>
+      </div>
+      <!-- Sex -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Sex</label>
+        <select class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
+          <option>Select sex</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <!-- Blood Type -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Blood Type</label>
+        <select class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
+          <option>Select blood type</option>
+          <option>A+</option>
+          <option>O+</option>
+          <option>B+</option>
+          <option>AB+</option>
+        </select>
+      </div>
+      <!-- Emergency Contact -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Contact</label>
+        <input type="text" placeholder="e.g. John Doe (555-555-5555)" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+      </div>
+      <!-- Health Insurance -->
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Health Insurance</label>
+        <input type="text" placeholder="e.g. Provider Name, Policy #12345" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+      </div>
+    </div>
+  </div>
+
+  <!-- Critical Health Data -->
+  <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+    <h3 class="text-lg font-bold text-gray-900 mb-1">Critical Health Data</h3>
+    <p class="text-sm text-gray-500 mb-6">This information is vital for emergency situations.</p>
+
+    <div class="space-y-5">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Allergies</label>
+        <textarea rows="2" placeholder="e.g. Penicillin, Peanuts" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Chronic Diseases</label>
+        <textarea rows="2" placeholder="e.g. Asthma, Diabetes" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Current Medications</label>
+        <textarea rows="2" placeholder="e.g. Metformin 500mg daily, Ventolin as needed" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Option -->
+  <div class="flex justify-end pt-2 pb-6">
+    <button class="bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-2 px-6 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] text-sm shadow-sm">
+      Save Changes
+    </button>
+  </div>
+</div>

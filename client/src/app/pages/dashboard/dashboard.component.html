@@ -1,0 +1,117 @@
+<div class="min-h-screen bg-[#f5f7f9] flex">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between">
+    <!-- Top Part -->
+    <div>
+      <!-- Logo -->
+      <div class="h-16 flex items-center px-6 border-b border-gray-100">
+        <div class="flex items-center space-x-2 text-[#7ca081] font-medium text-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="4" width="14" height="16" rx="2" ry="2"></rect>
+            <line x1="8" y1="9" x2="16" y2="9"></line>
+            <line x1="8" y1="13" x2="16" y2="13"></line>
+            <line x1="8" y1="17" x2="12" y2="17"></line>
+            <path d="M12 4v4h4"></path>
+          </svg>
+          <span class="font-bold">CareConnect</span>
+        </div>
+      </div>
+      
+      <!-- Nav Links -->
+      <nav class="mt-4 px-3 space-y-1">
+        <!-- Dashboard Link -->
+        <a href="#" (click)="setView('dashboard'); $event.preventDefault()" 
+           [class.bg-gray-100]="currentView === 'dashboard'" 
+           [class.text-gray-900]="currentView === 'dashboard'"
+           [class.text-gray-600]="currentView !== 'dashboard'"
+           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" [class.text-gray-700]="currentView === 'dashboard'" [class.text-gray-400]="currentView !== 'dashboard'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- PHR Link -->
+        <a href="#" (click)="setView('phr'); $event.preventDefault()" 
+           [class.bg-gray-100]="currentView === 'phr'" 
+           [class.text-gray-900]="currentView === 'phr'"
+           [class.text-gray-600]="currentView !== 'phr'"
+           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" [class.text-gray-700]="currentView === 'phr'" [class.text-gray-400]="currentView !== 'phr'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>PHR</span>
+        </a>
+        
+        <!-- Other Links -->
+        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Appointments</span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+          </svg>
+          <span>Find a Doctor</span>
+        </a>
+        
+        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>Services</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Profile Part -->
+    <div class="p-4 border-t border-gray-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="h-9 w-9 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-full flex items-center justify-center overflow-hidden">
+             <!-- A simple generic avatar silhouette -->
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+             </svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-gray-900">Admin</p>
+            <p class="text-xs text-gray-500">admin@example.com</p>
+          </div>
+        </div>
+        <!-- Logout icon -->
+        <button class="text-gray-400 hover:text-gray-600 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col h-screen overflow-hidden">
+    <!-- Navbar -->
+    <header class="h-16 bg-white border-b border-gray-200 flex items-center px-8 shrink-0 relative z-10 shadow-sm">
+      <h1 class="text-lg font-bold text-gray-900">
+        @if (currentView === 'dashboard') {
+          Dashboard
+        } @if (currentView === 'phr') {
+          Personal Health Record
+        }
+      </h1>
+    </header>
+
+    <!-- Context area -->
+    <div class="p-8 flex-1 overflow-auto relative rounded-tl-xl border-t border-l border-gray-200 bg-[#f5f7f9]">
+      @if (currentView === 'dashboard') {
+        <h2 class="text-3xl font-bold text-gray-900">Welcome back, to Admin</h2>
+      } @if (currentView === 'phr') {
+        <app-phr></app-phr>
+      }
+    </div>
+  </main>
+</div>

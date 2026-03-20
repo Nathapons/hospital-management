@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-[#f5f5f5] flex flex-col items-center justify-center p-4">
+  <div class="mb-6 flex flex-col items-center">
+    <div class="flex items-center space-x-2 text-[#7ca081] font-medium text-2xl">
+      <!-- Simple SVG logo mimicking the provided visual -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="4" width="14" height="16" rx="2" ry="2"></rect>
+        <line x1="8" y1="9" x2="16" y2="9"></line>
+        <line x1="8" y1="13" x2="16" y2="13"></line>
+        <line x1="8" y1="17" x2="12" y2="17"></line>
+        <path d="M12 4v4h4"></path>
+      </svg>
+      <span>CareConnect</span>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 w-full max-w-[400px]">
+    <h2 class="text-2xl font-bold text-gray-900 mb-1">Patient Login</h2>
+    <p class="text-sm text-gray-500 mb-6">Enter your credentials to access your patient portal.</p>
+
+    <form (ngSubmit)="login()">
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+        <input 
+          id="username"
+          type="text" 
+          name="username"
+          [(ngModel)]="username"
+          class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] focus:border-transparent transition-colors text-sm"
+          placeholder="admin"
+          required
+        >
+      </div>
+
+      <div class="mb-6">
+        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+        <input 
+          id="password"
+          type="password" 
+          name="password"
+          [(ngModel)]="password"
+          class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] focus:border-transparent transition-colors text-sm tracking-widest placeholder:tracking-normal"
+          placeholder="••••••••"
+          required
+        >
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-2.5 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081]"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
