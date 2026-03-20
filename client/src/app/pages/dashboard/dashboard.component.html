@@ -42,28 +42,6 @@
           </svg>
           <span>PHR</span>
         </a>
-        
-        <!-- Other Links -->
-        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          <span>Appointments</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-          </svg>
-          <span>Find a Doctor</span>
-        </a>
-        
-        <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          <span>Services</span>
-        </a>
       </nav>
     </div>
 
@@ -95,14 +73,23 @@
   <!-- Main Content -->
   <main class="flex-1 flex flex-col h-screen overflow-hidden">
     <!-- Navbar -->
-    <header class="h-16 bg-white border-b border-gray-200 flex items-center px-8 shrink-0 relative z-10 shadow-sm">
+    <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 shrink-0 relative z-10 shadow-sm">
       <h1 class="text-lg font-bold text-gray-900">
         @if (currentView === 'dashboard') {
           Dashboard
         } @if (currentView === 'phr') {
           Personal Health Record
+        } @if (currentView === 'create-user') {
+          Create User
         }
       </h1>
+      
+      <button (click)="setView('create-user')" class="bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-2 px-4 rounded-md transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] text-sm flex gap-2 items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        New Hospital User
+      </button>
     </header>
 
     <!-- Context area -->
@@ -111,6 +98,8 @@
         <h2 class="text-3xl font-bold text-gray-900">Welcome back, to Admin</h2>
       } @if (currentView === 'phr') {
         <app-phr></app-phr>
+      } @if (currentView === 'create-user') {
+        <app-create-user></app-create-user>
       }
     </div>
   </main>
