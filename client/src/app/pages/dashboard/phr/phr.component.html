@@ -1,4 +1,41 @@
 <div class="space-y-6">
+  <!-- Hospital Registration Information -->
+  <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="text-lg font-bold text-gray-900">Patient Registration</h3>
+      <button (click)="checkRegistration()" class="bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-1.5 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] text-sm shadow-sm flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span>Check</span>
+      </button>
+    </div>
+    <p class="text-sm text-gray-500 mb-6">Enter registration health care number to fetch patient data.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+      <!-- Registration Health Care Number -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Registration Health Care Number</label>
+        <input type="text" [(ngModel)]="regHealthCareNumber" placeholder="e.g. 1234567890123" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+      </div>
+      <!-- Health Care Number (HN) -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Health Care Number (HN)</label>
+        <input type="text" [(ngModel)]="healthCareNumberHN" readonly placeholder="Auto-filled from DB" class="w-full px-3 py-2 bg-gray-100 border border-gray-200 rounded-md text-gray-500 cursor-not-allowed text-sm">
+      </div>
+      <!-- Registration Date -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Registration Date</label>
+        <input type="date" [(ngModel)]="regDate" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500">
+      </div>
+      <!-- Registration Time -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Registration Time</label>
+        <input type="time" [(ngModel)]="regTime" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500">
+      </div>
+    </div>
+  </div>
+
   <!-- Profile Information -->
   <div class="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
     <h3 class="text-lg font-bold text-gray-900 mb-1">Profile Information</h3>
@@ -8,24 +45,24 @@
       <!-- First Name -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-        <input type="text" value="Jane" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+        <input type="text" [(ngModel)]="firstName" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
       </div>
       <!-- Last Name -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-        <input type="text" value="Doe" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+        <input type="text" [(ngModel)]="lastName" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
       </div>
       <!-- Date of Birth -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
         <div class="relative">
-          <input type="text" placeholder="Pick a date" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+          <input type="date" [(ngModel)]="dateOfBirth" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
         </div>
       </div>
       <!-- Sex -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Sex</label>
-        <select class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
+        <select [(ngModel)]="sex" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
           <option>Select sex</option>
           <option>Male</option>
           <option>Female</option>
@@ -35,7 +72,7 @@
       <!-- Blood Type -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Blood Type</label>
-        <select class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
+        <select [(ngModel)]="bloodType" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm text-gray-500 appearance-none">
           <option>Select blood type</option>
           <option>A+</option>
           <option>O+</option>
@@ -46,12 +83,12 @@
       <!-- Emergency Contact -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Emergency Contact</label>
-        <input type="text" placeholder="e.g. John Doe (555-555-5555)" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+        <input type="text" [(ngModel)]="emergencyContact" placeholder="e.g. John Doe (555-555-5555)" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
       </div>
       <!-- Health Insurance -->
       <div class="md:col-span-2">
         <label class="block text-sm font-medium text-gray-700 mb-1">Health Insurance</label>
-        <input type="text" placeholder="e.g. Provider Name, Policy #12345" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
+        <input type="text" [(ngModel)]="healthInsurance" placeholder="e.g. Provider Name, Policy #12345" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm">
       </div>
     </div>
   </div>
@@ -64,15 +101,15 @@
     <div class="space-y-5">
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Allergies</label>
-        <textarea rows="2" placeholder="e.g. Penicillin, Peanuts" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+        <textarea [(ngModel)]="allergies" rows="2" placeholder="e.g. Penicillin, Peanuts" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
       </div>
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Chronic Diseases</label>
-        <textarea rows="2" placeholder="e.g. Asthma, Diabetes" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+        <textarea [(ngModel)]="chronicDiseases" rows="2" placeholder="e.g. Asthma, Diabetes" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
       </div>
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">Current Medications</label>
-        <textarea rows="2" placeholder="e.g. Metformin 500mg daily, Ventolin as needed" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
+        <textarea [(ngModel)]="currentMedications" rows="2" placeholder="e.g. Metformin 500mg daily, Ventolin as needed" class="w-full px-3 py-2 bg-[#f8f9fa] border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7ca081] transition-colors text-sm resize-none"></textarea>
       </div>
     </div>
   </div>
