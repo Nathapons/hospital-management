@@ -16,4 +16,10 @@ func RegisterRoutes(r *gin.Engine) {
 		patient.GET("/:id", handlers.SearchPatient)
 		patient.POST("/", handlers.CreatePatient)
 	}
+
+	stats := r.Group("/api/stats")
+	{
+		stats.GET("/registrations", handlers.GetDailyRegistrations)
+		stats.GET("/gender", handlers.GetGenderStats)
+	}
 }

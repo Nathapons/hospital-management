@@ -1,10 +1,20 @@
-<div class="min-h-screen bg-[#f5f7f9] flex">
+<div class="min-h-screen flex transition-colors duration-1000"
+     [class.bg-gray-950]="isDark"
+     [class.bg-[#f5f7f9]]="!isDark">
+
   <!-- Sidebar -->
-  <aside class="w-64 bg-white border-r border-gray-200 flex flex-col justify-between">
+  <aside class="w-64 flex flex-col justify-between border-r transition-colors duration-1000"
+         [class.bg-gray-900]="isDark"
+         [class.border-gray-700]="isDark"
+         [class.bg-white]="!isDark"
+         [class.border-gray-200]="!isDark">
+
     <!-- Top Part -->
     <div>
       <!-- Logo -->
-      <div class="h-16 flex items-center px-6 border-b border-gray-100">
+      <div class="h-16 flex items-center px-6 border-b transition-colors duration-1000"
+           [class.border-gray-700]="isDark"
+           [class.border-gray-100]="!isDark">
         <div class="flex items-center space-x-2 text-[#7ca081] font-medium text-xl">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="5" y="4" width="14" height="16" rx="2" ry="2"></rect>
@@ -16,28 +26,48 @@
           <span class="font-bold">CareConnect</span>
         </div>
       </div>
-      
+
       <!-- Nav Links -->
       <nav class="mt-4 px-3 space-y-1">
         <!-- Dashboard Link -->
-        <a href="#" (click)="setView('dashboard'); $event.preventDefault()" 
-           [class.bg-gray-100]="currentView === 'dashboard'" 
-           [class.text-gray-900]="currentView === 'dashboard'"
-           [class.text-gray-600]="currentView !== 'dashboard'"
-           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" [class.text-gray-700]="currentView === 'dashboard'" [class.text-gray-400]="currentView !== 'dashboard'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="#" (click)="setView('dashboard'); $event.preventDefault()"
+           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+           [class.bg-gray-800]="isDark && currentView === 'dashboard'"
+           [class.text-white]="isDark && currentView === 'dashboard'"
+           [class.text-gray-400]="isDark && currentView !== 'dashboard'"
+           [class.hover:bg-gray-800]="isDark"
+           [class.hover:text-white]="isDark"
+           [class.bg-gray-100]="!isDark && currentView === 'dashboard'"
+           [class.text-gray-900]="!isDark && currentView === 'dashboard'"
+           [class.text-gray-600]="!isDark && currentView !== 'dashboard'"
+           [class.hover:bg-gray-50]="!isDark"
+           [class.hover:text-gray-900]="!isDark">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+               [class.text-gray-300]="isDark && currentView === 'dashboard'"
+               [class.text-gray-500]="isDark && currentView !== 'dashboard'"
+               [class.text-gray-700]="!isDark && currentView === 'dashboard'"
+               [class.text-gray-400]="!isDark && currentView !== 'dashboard'"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
           </svg>
           <span>Dashboard</span>
         </a>
 
         <!-- PHR Link -->
-        <a href="#" (click)="setView('phr'); $event.preventDefault()" 
-           [class.bg-gray-100]="currentView === 'phr'" 
-           [class.text-gray-900]="currentView === 'phr'"
-           [class.text-gray-600]="currentView !== 'phr'"
-           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" [class.text-gray-700]="currentView === 'phr'" [class.text-gray-400]="currentView !== 'phr'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="#" (click)="setView('phr'); $event.preventDefault()"
+           class="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+           [class.bg-gray-800]="isDark && currentView === 'phr'"
+           [class.text-white]="isDark && currentView === 'phr'"
+           [class.text-gray-400]="isDark && currentView !== 'phr'"
+           [class.bg-gray-100]="!isDark && currentView === 'phr'"
+           [class.text-gray-900]="!isDark && currentView === 'phr'"
+           [class.text-gray-600]="!isDark && currentView !== 'phr'">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+               [class.text-gray-300]="isDark && currentView === 'phr'"
+               [class.text-gray-500]="isDark && currentView !== 'phr'"
+               [class.text-gray-700]="!isDark && currentView === 'phr'"
+               [class.text-gray-400]="!isDark && currentView !== 'phr'"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
           <span>PHR</span>
@@ -46,22 +76,31 @@
     </div>
 
     <!-- Bottom Profile Part -->
-    <div class="p-4 border-t border-gray-200">
+    <div class="p-4 border-t transition-colors duration-1000"
+         [class.border-gray-700]="isDark"
+         [class.border-gray-200]="!isDark">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-3">
           <div class="h-9 w-9 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-full flex items-center justify-center overflow-hidden">
-             <!-- A simple generic avatar silhouette -->
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
-               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-             </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
           </div>
           <div>
-            <p class="text-sm font-medium text-gray-900">Admin</p>
-            <p class="text-xs text-gray-500">admin@example.com</p>
+            <p class="text-sm font-medium transition-colors duration-1000"
+               [class.text-gray-100]="isDark"
+               [class.text-gray-900]="!isDark">Admin</p>
+            <p class="text-xs transition-colors duration-1000"
+               [class.text-gray-400]="isDark"
+               [class.text-gray-500]="!isDark">admin&#64;example.com</p>
           </div>
         </div>
         <!-- Logout icon -->
-        <button (click)="logout()" class="text-gray-400 hover:text-gray-600 transition-colors">
+        <button (click)="logout()" class="transition-colors duration-200"
+                [class.text-gray-500]="isDark"
+                [class.hover:text-gray-300]="isDark"
+                [class.text-gray-400]="!isDark"
+                [class.hover:text-gray-600]="!isDark">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
@@ -73,32 +112,86 @@
   <!-- Main Content -->
   <main class="flex-1 flex flex-col h-screen overflow-hidden">
     <!-- Navbar -->
-    <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 shrink-0 relative z-10 shadow-sm">
-      <h1 class="text-lg font-bold text-gray-900">
-        @if (currentView === 'dashboard') {
-          Dashboard
-        } @if (currentView === 'phr') {
-          Personal Health Record
-        } @if (currentView === 'create-user') {
-          Create User
-        }
+    <header class="h-16 flex items-center justify-between px-8 shrink-0 relative z-10 shadow-sm border-b transition-colors duration-1000"
+            [class.bg-gray-900]="isDark"
+            [class.border-gray-700]="isDark"
+            [class.bg-white]="!isDark"
+            [class.border-gray-200]="!isDark">
+
+      <h1 class="text-lg font-bold transition-colors duration-1000"
+          [class.text-gray-100]="isDark"
+          [class.text-gray-900]="!isDark">
+        @if (currentView === 'dashboard') { Dashboard }
+        @if (currentView === 'phr') { Personal Health Record }
+        @if (currentView === 'create-user') { Create User }
       </h1>
-      
-      <button (click)="setView('create-user')" class="bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-2 px-4 rounded-md transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] text-sm flex gap-2 items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-        </svg>
-        New Hospital User
-      </button>
+
+      <div class="flex items-center gap-3">
+        <!-- Dark / Light Mode Toggle -->
+        <button
+          id="theme-toggle-btn"
+          (click)="toggleTheme()"
+          [disabled]="isTransitioning"
+          [title]="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+          class="relative inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] disabled:opacity-60 disabled:cursor-not-allowed"
+          [class.bg-gray-800]="isDark"
+          [class.border-gray-600]="isDark"
+          [class.text-yellow-300]="isDark"
+          [class.hover:bg-gray-700]="isDark && !isTransitioning"
+          [class.bg-gray-100]="!isDark"
+          [class.border-gray-300]="!isDark"
+          [class.text-gray-600]="!isDark"
+          [class.hover:bg-gray-200]="!isDark && !isTransitioning">
+
+          <!-- Spinner while transitioning -->
+          @if (isTransitioning) {
+            <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+            </svg>
+          } @else if (isDark) {
+            <!-- Sun icon (click to go light) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07-6.07-.707.707M6.343 17.657l-.707.707m12.728 0-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+            </svg>
+            <span>Light Mode</span>
+          } @else {
+            <!-- Moon icon (click to go dark) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <span>Dark Mode</span>
+          }
+        </button>
+
+        <!-- New Hospital User -->
+        <button (click)="setView('create-user')"
+                class="bg-[#87b48c] hover:bg-[#7ca081] text-white font-medium py-2 px-4 rounded-md transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7ca081] text-sm flex gap-2 items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          New Hospital User
+        </button>
+      </div>
     </header>
 
     <!-- Context area -->
-    <div class="p-8 flex-1 overflow-auto relative rounded-tl-xl border-t border-l border-gray-200 bg-[#f5f7f9]">
+    <div class="p-8 flex-1 overflow-auto relative rounded-tl-xl border-t border-l transition-colors duration-1000"
+         [class.bg-gray-950]="isDark"
+         [class.border-gray-700]="isDark"
+         [class.text-gray-100]="isDark"
+         [class.bg-[#f5f7f9]]="!isDark"
+         [class.border-gray-200]="!isDark">
       @if (currentView === 'dashboard') {
-        <h2 class="text-3xl font-bold text-gray-900">Welcome back, to Admin</h2>
-      } @if (currentView === 'phr') {
+        <h2 class="text-3xl font-bold transition-colors duration-1000"
+            [class.text-gray-100]="isDark"
+            [class.text-gray-900]="!isDark">Welcome back, to Admin</h2>
+        <app-dashboard-charts [isDark]="isDark"></app-dashboard-charts>
+      }
+      @if (currentView === 'phr') {
         <app-phr></app-phr>
-      } @if (currentView === 'create-user') {
+      }
+      @if (currentView === 'create-user') {
         <app-create-user></app-create-user>
       }
     </div>

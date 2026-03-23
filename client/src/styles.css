@@ -1,3 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+/* Smooth 1-second global theme transition */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-in-out;
+}
+/* Reset transition for interactive elements so they stay snappy */
+button, a, input, select, textarea {
+  transition-duration: 200ms;
+}
+/* But let the theme-toggle button use 1s too */
+#theme-toggle-btn {
+  transition-duration: 1000ms;
+}
